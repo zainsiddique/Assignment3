@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="home.css">
+  <title>Movies</title>
+</head>
+
+<body>
+  <header>
+    <h1>Hollywood Movies</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showSection('home')">Home</a></li>
+        <li><a href="#" onclick="showSection('movies')">Movies</a></li>
+        <li><a href="#addMovie" data-toggle="modal" data-target="#addMovieModal">Add Movie</a></li>
+        <!-- Add more navigation links as needed -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="section">
+      <div class="splash">
+        <h2>Welcome to Hollywood Movies</h2>
+        <p>Watch new movies here.</p>
+      </div>
+    </section>
+
+    <section id="movies" class="section">
+      <h2>Movies List</h2>
+      <div class="movie-container">
+        <!-- Movie details, delete, update buttons will be displayed dynamically here -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Hollywood Movies</p>
+  </footer>
+<!-- Add Movie Modal -->
+<div class="modal fade" id="addMovieModal" tabindex="-1" role="dialog" aria-labelledby="addMovieModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addMovieModalLabel">Add Movie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Form for adding a new movie -->
+        <form id="addMovieForm">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Enter movie title" required>
+          </div>
+          <div class="form-group">
+            <label for="genre">Genre</label>
+            <input type="text" class="form-control" id="genre" name="genre" placeholder="Enter movie genre" required>
+          </div>
+          <div class="form-group">
+            <label for="releaseYear">Release Year</label>
+            <input type="number" class="form-control" id="releaseYear" name="releaseYear"
+              placeholder="Enter release year" required>
+          </div>
+          <div class="form-group">
+            <label for="rating">Rating</label>
+            <input type="number" class="form-control" id="rating" name="rating" placeholder="Enter rating" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Movie</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Update Movie Modal -->
+<div class="modal fade" id="updateMovieModal" tabindex="-1" role="dialog" aria-labelledby="updateMovieModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateMovieModalLabel">Update Movie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Form for updating a movie -->
+        <form id="updateMovieForm">
+          <div class="form-group">
+            <label for="updateTitle">Title</label>
+            <input type="text" class="form-control" id="updateTitle" name="title" placeholder="Enter movie title"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="updateGenre">Genre</label>
+            <input type="text" class="form-control" id="updateGenre" name="genre" placeholder="Enter movie genre"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="updateReleaseYear">Release Year</label>
+            <input type="number" class="form-control" id="updateReleaseYear" name="releaseYear"
+              placeholder="Enter release year" required>
+          </div>
+          <div class="form-group">
+            <label for="updateRating">Rating</label>
+            <input type="number" class="form-control" id="updateRating" name="rating" placeholder="Enter rating"
+              required>
+          </div>
+          <button type="submit" class="btn btn-primary">Update Movie</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="home.js"></script>
+
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      // Show the selected section
+      document.getElementById(sectionId).style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>
